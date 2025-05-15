@@ -14,7 +14,7 @@ export function DataDisplayCard({ title, value, unit, icon, className }: DataDis
   return (
     <Card 
       className={`shadow-lg flex flex-col bg-card/80 backdrop-blur-sm border-transparent rounded-lg overflow-hidden neon-outline-primary ${className}`}
-      style={{ clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)' }} // Adjusted tilt
+      style={{ clipPath: 'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)' }} // Significantly increased tilt
     >
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 pt-4 px-10 md:px-12">
         <CardTitle className="text-base font-medium text-muted-foreground uppercase tracking-wider">{title}</CardTitle>
