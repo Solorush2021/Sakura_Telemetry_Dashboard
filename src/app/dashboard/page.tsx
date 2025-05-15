@@ -41,10 +41,10 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-background text-foreground p-2 md:p-4">
       <div className="relative container mx-auto border border-primary/20 rounded-lg p-4 md:p-6 shadow-2xl bg-background/80 backdrop-blur-md space-y-6">
         {/* Decorative corner elements - made more prominent */}
-        <div className="absolute -top-1 -left-1 w-10 h-10 border-t-4 border-l-4 border-accent/70 rounded-tl-lg opacity-70"></div>
-        <div className="absolute -top-1 -right-1 w-10 h-10 border-t-4 border-r-4 border-accent/70 rounded-tr-lg opacity-70"></div>
-        <div className="absolute -bottom-1 -left-1 w-10 h-10 border-b-4 border-l-4 border-accent/70 rounded-bl-lg opacity-70"></div>
-        <div className="absolute -bottom-1 -right-1 w-10 h-10 border-b-4 border-r-4 border-accent/70 rounded-br-lg opacity-70"></div>
+        <div className="absolute -top-1 -left-1 w-10 h-10 border-t-4 border-l-4 border-accent/70 rounded-tl-lg opacity-90"></div>
+        <div className="absolute -top-1 -right-1 w-10 h-10 border-t-4 border-r-4 border-accent/70 rounded-tr-lg opacity-90"></div>
+        <div className="absolute -bottom-1 -left-1 w-10 h-10 border-b-4 border-l-4 border-accent/70 rounded-bl-lg opacity-90"></div>
+        <div className="absolute -bottom-1 -right-1 w-10 h-10 border-b-4 border-r-4 border-accent/70 rounded-br-lg opacity-90"></div>
         
         <header className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0 pb-4 border-b-2 border-primary/30">
           <div className="flex items-center space-x-4">
@@ -67,7 +67,7 @@ export default function DashboardPage() {
 
         <section 
           className="p-4 bg-card/50 border border-border/50 rounded-md shadow-inner"
-          style={{ clipPath: 'polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%)' }}
+          style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-4">// Core Metrics Array</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-2">
@@ -96,7 +96,7 @@ export default function DashboardPage() {
 
         <section 
           className="space-y-4 p-4 bg-card/50 border border-border/50 rounded-md shadow-inner"
-          style={{ clipPath: 'polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%)' }}
+          style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
            <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-4">// Fuel Consumption Analysis</h2>
           <div className="flex justify-center">
@@ -114,7 +114,7 @@ export default function DashboardPage() {
           {showFuelTrend && (
             <Card 
               className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border border-primary/50"
-              style={{ clipPath: 'polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)' }}
+              style={{ clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)' }}
             >
               <CardHeader className="border-b border-primary/30 px-8"> {/* Increased horizontal padding */}
                 <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>

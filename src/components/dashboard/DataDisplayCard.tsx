@@ -14,7 +14,7 @@ export function DataDisplayCard({ title, value, unit, icon, className }: DataDis
   return (
     <Card 
       className={`shadow-lg flex flex-col bg-card/90 backdrop-blur-sm border border-primary/30 rounded-lg overflow-hidden hover:border-primary/60 transition-colors duration-300 ${className}`}
-      style={{ clipPath: 'polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)' }}
+      style={{ clipPath: 'polygon(18% 0%, 100% 0%, 82% 100%, 0% 100%)' }}
     >
       <div className="h-1.5 bg-primary/70 w-full"></div> {/* Top accent line */}
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 pt-4 px-8"> {/* Increased horizontal padding */}
