@@ -4,90 +4,90 @@
 
 @layer base {
   :root {
-    /* New Sci-Fi Palette: Dark Blue/Black, Vibrant Green, Bright Orange, Cyan Accent, Red Highlight */
-    --background: 220 30% 10%; /* Dark Slate Blue */
+    /* Sci-Fi Palette: Solid Black, Neon Pink, Bright Mint Green, Cyan Accent, Red Highlight */
+    --background: 0 0% 0%; /* Solid Black */
     --foreground: 145 70% 75%; /* Bright Mint Green */
 
-    --card: 220 25% 15%; /* Darker Slate Blue for cards */
+    --card: 220 25% 10%; /* Darker Slate Blue, slightly lighter than pure black for depth */
     --card-foreground: 145 70% 75%; /* Bright Mint Green */
 
     --popover: 220 30% 8%; /* Very Dark Slate Blue for popovers */
     --popover-foreground: 145 70% 75%; /* Bright Mint Green */
 
-    /* Primary interactive elements: Bright Orange */
-    --primary: 25 95% 60%; 
-    --primary-foreground: 0 0% 100%; /* White for contrast on orange */
+    /* Primary interactive elements: Neon Pink */
+    --primary: 330 90% 55%; 
+    --primary-foreground: 0 0% 100%; /* White for contrast on pink */
 
-    /* Secondary elements: Sky Blue */
+    /* Secondary elements: Sky Blue / Cyan */
     --secondary: 200 80% 60%;
     --secondary-foreground: 0 0% 100%; /* White */
 
-    --muted: 145 50% 50%; /* Muted Mint Green */
-    --muted-foreground: 145 60% 65%; /* Slightly Brighter Muted Mint Green */
+    --muted: 145 50% 40%; /* Muted Mint Green - slightly darker */
+    --muted-foreground: 145 60% 65%; 
 
     /* Accent for highlights: Bright Cyan */
     --accent: 180 90% 55%;
-    --accent-foreground: 220 30% 10%; /* Dark background for contrast on cyan */
+    --accent-foreground: 220 30% 10%; 
 
     --destructive: 0 80% 60%; /* Red */
     --destructive-foreground: 0 0% 100%; /* White */
 
-    --border: 220 20% 25%; /* Darker, desaturated blue border */
-    --input: 220 20% 20%; /* Dark input background */
-    --ring: 25 95% 70%; /* Lighter Orange for focus rings */
+    --border: 220 20% 25%; 
+    --input: 220 20% 20%; 
+    --ring: 330 90% 65%; /* Lighter Pink for focus rings */
 
-    --chart-1: 25 95% 60%;   /* Bright Orange (Primary) */
+    --chart-1: 0 80% 60%;   /* Red for fuel line */
     --chart-2: 180 90% 55%;  /* Bright Cyan (Accent) */
     --chart-3: 145 70% 75%;  /* Bright Mint Green (Foreground) */
-    --chart-4: 340 90% 65%;  /* Vibrant Pink/Red */
+    --chart-4: 340 90% 65%;  /* Vibrant Pink/Red (alternative pink/red) */
     --chart-5: 50 100% 60%;  /* Bright Yellow */
     
     --radius: 0.5rem;
 
     /* Sidebar vars */
-    --sidebar-background: 220 30% 7%; /* Even darker blue */
-    --sidebar-foreground: 145 70% 75%; /* Bright Mint Green */
-    --sidebar-primary: 25 95% 60%; /* Bright Orange */
+    --sidebar-background: 220 30% 7%;
+    --sidebar-foreground: 145 70% 75%;
+    --sidebar-primary: 330 90% 55%; /* Neon Pink */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 180 90% 55%; /* Bright Cyan */
+    --sidebar-accent: 180 90% 55%;
     --sidebar-accent-foreground: 220 30% 10%;
     --sidebar-border: 220 20% 22%;
-    --sidebar-ring: 25 95% 70%;
+    --sidebar-ring: 330 90% 65%;
   }
 
   .dark {
-    --background: 220 30% 10%;
+    --background: 0 0% 0%;
     --foreground: 145 70% 75%;
-    --card: 220 25% 15%;
+    --card: 220 25% 10%;
     --card-foreground: 145 70% 75%;
     --popover: 220 30% 8%;
     --popover-foreground: 145 70% 75%;
-    --primary: 25 95% 60%;
+    --primary: 330 90% 55%;
     --primary-foreground: 0 0% 100%;
     --secondary: 200 80% 60%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 145 50% 50%;
+    --muted: 145 50% 40%;
     --muted-foreground: 145 60% 65%;
     --accent: 180 90% 55%;
     --accent-foreground: 220 30% 10%;
-    --destructive: 0 72.2% 50.6%; /* Standard destructive red from previous theme */
+    --destructive: 0 72.2% 50.6%;
     --destructive-foreground: 0 0% 100%;
     --border: 220 20% 25%;
     --input: 220 20% 20%;
-    --ring: 25 95% 70%;
-    --chart-1: 25 95% 60%;
+    --ring: 330 90% 65%;
+    --chart-1: 0 80% 60%;
     --chart-2: 180 90% 55%;
     --chart-3: 145 70% 75%;
     --chart-4: 340 90% 65%;
     --chart-5: 50 100% 60%;
     --sidebar-background: 220 30% 7%;
     --sidebar-foreground: 145 70% 75%;
-    --sidebar-primary: 25 95% 60%;
+    --sidebar-primary: 330 90% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 180 90% 55%;
     --sidebar-accent-foreground: 220 30% 10%;
     --sidebar-border: 220 20% 22%;
-    --sidebar-ring: 25 95% 70%;
+    --sidebar-ring: 330 90% 65%;
   }
 }
 
@@ -101,7 +101,45 @@
   }
 }
 
+/* Existing neon glow for Cherry Blossom, now uses pink primary */
 .neon-glow {
-  /* Primary will now be orange, so the glow will be orange */
   filter: drop-shadow(0 0 5px hsl(var(--primary))) drop-shadow(0 0 10px hsl(var(--primary) / 0.7));
+}
+
+@layer utilities {
+  .neon-outline-primary {
+    @apply shadow-[0_0_2px_hsl(var(--primary)/0.8),0_0_5px_hsl(var(--primary)/0.6),0_0_10px_hsl(var(--primary)/0.4),inset_0_0_5px_hsl(var(--card)/0.5)];
+  }
+  .neon-outline-chart4 { /* For red/pinkish glow */
+    @apply shadow-[0_0_2px_hsl(var(--chart-4)/0.8),0_0_5px_hsl(var(--chart-4)/0.6),0_0_10px_hsl(var(--chart-4)/0.4),0_0_1px_#fff,inset_0_0_8px_hsl(var(--card)/0.5)];
+  }
+
+  .text-glow-pink-white {
+    color: hsl(var(--primary-foreground)); /* White base */
+    text-shadow: 0 0 3px hsl(var(--primary-foreground)), 0 0 5px hsl(var(--primary)/0.8), 0 0 8px hsl(var(--primary)/0.6);
+  }
+  
+  .animate-pulse-scale-glow {
+    animation: pulse-scale-glow 2.5s infinite ease-in-out;
+  }
+
+  .animate-scroll-text {
+    animation: scroll-text 20s linear infinite;
+  }
+}
+
+@keyframes pulse-scale-glow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px hsl(var(--primary)/0.7)) drop-shadow(0 0 8px hsl(var(--primary)/0.5));
+  }
+  50% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px hsl(var(--primary)/0.9)) drop-shadow(0 0 15px hsl(var(--primary)/0.7));
+  }
+}
+
+@keyframes scroll-text {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-120%); } /* Adjusted for full clear */
 }

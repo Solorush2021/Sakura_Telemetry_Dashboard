@@ -6,9 +6,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { DataDisplayCard } from '@/components/dashboard/DataDisplayCard';
 import { FuelTrendChart } from '@/components/dashboard/FuelTrendChart';
+import { TextRibbon } from '@/components/dashboard/TextRibbon';
 import { CherryBlossomIcon } from '@/components/icons/CherryBlossomIcon';
 import { LogoutButton } from '@/components/LogoutButton';
-import { Fuel, Gauge, SignalHigh, BarChartHorizontalBig, Activity, AlertTriangle } from 'lucide-react';
+import { Fuel, Activity, SignalHigh, BarChartHorizontalBig, AlertTriangle } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 export default function DashboardPage() {
@@ -39,19 +40,19 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground p-2 md:p-4">
-      <div className="relative container mx-auto border border-primary/20 rounded-lg p-4 md:p-6 shadow-2xl bg-background/80 backdrop-blur-md space-y-6">
+      <div className="relative container mx-auto border border-primary/20 rounded-lg p-4 md:p-6 shadow-2xl bg-background/80 backdrop-blur-sm space-y-6">
         {/* Decorative corner elements - made more prominent */}
-        <div className="absolute -top-1 -left-1 w-10 h-10 border-t-4 border-l-4 border-accent/70 rounded-tl-lg opacity-90"></div>
-        <div className="absolute -top-1 -right-1 w-10 h-10 border-t-4 border-r-4 border-accent/70 rounded-tr-lg opacity-90"></div>
-        <div className="absolute -bottom-1 -left-1 w-10 h-10 border-b-4 border-l-4 border-accent/70 rounded-bl-lg opacity-90"></div>
-        <div className="absolute -bottom-1 -right-1 w-10 h-10 border-b-4 border-r-4 border-accent/70 rounded-br-lg opacity-90"></div>
+        <div className="absolute -top-1 -left-1 w-10 h-10 border-t-4 border-l-4 border-primary/70 rounded-tl-lg opacity-90"></div>
+        <div className="absolute -top-1 -right-1 w-10 h-10 border-t-4 border-r-4 border-primary/70 rounded-tr-lg opacity-90"></div>
+        <div className="absolute -bottom-1 -left-1 w-10 h-10 border-b-4 border-l-4 border-primary/70 rounded-bl-lg opacity-90"></div>
+        <div className="absolute -bottom-1 -right-1 w-10 h-10 border-b-4 border-r-4 border-primary/70 rounded-br-lg opacity-90"></div>
         
         <header className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0 pb-4 border-b-2 border-primary/30">
           <div className="flex items-center space-x-4">
-            <CherryBlossomIcon className="h-12 w-12 text-primary animate-pulse" />
+            <CherryBlossomIcon className="h-12 w-12 text-primary animate-pulse neon-glow" />
             <div>
               <h1 className="text-4xl font-bold text-foreground tracking-tight">SAKURA TELEMETRY</h1>
-              <p className="text-sm text-accent/80 uppercase tracking-wider">Operational Dashboard // v2.1</p>
+              <p className="text-sm text-primary/80 uppercase tracking-wider">Operational Dashboard // v2.1</p>
             </div>
           </div>
           <div className="flex flex-col items-end space-y-2">
@@ -60,34 +61,36 @@ export default function DashboardPage() {
           </div>
         </header>
 
-        <div className="grid grid-cols-2 gap-2 md:gap-4 text-xs text-accent/70 uppercase tracking-wider mb-2">
+        <TextRibbon />
+
+        <div className="grid grid-cols-2 gap-2 md:gap-4 text-xs text-accent/70 uppercase tracking-wider mb-2 mt-4">
           <p>System Status: <span className="text-green-400">OPERATIONAL</span></p>
           <p className="text-right">Data Stream: <span className="text-green-400">ACTIVE</span></p>
         </div>
 
         <section 
-          className="p-4 bg-card/50 border border-border/50 rounded-md shadow-inner"
+          className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" // use neon-outline-primary
           style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
-          <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-4">// Core Metrics Array</h2>
+          <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2"> // Core Metrics Array</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-2">
             <DataDisplayCard
               title="Fuel Reserves"
               value={fuel}
               unit="%"
-              icon={<Fuel size={32} className="text-primary" />}
+              icon={<Fuel size={32} />} // Glow applied in DataDisplayCard
             />
             <DataDisplayCard
               title="Engine Output"
               value={rpm.toLocaleString()}
               unit="RPM"
-              icon={<Activity size={32} className="text-primary" />}
+              icon={<Activity size={32} />} // Glow applied in DataDisplayCard
             />
             <DataDisplayCard
               title="GNSS Precision"
               value={gnssAccuracy}
               unit="%"
-              icon={<SignalHigh size={32} className="text-primary" />}
+              icon={<SignalHigh size={32} />} // Glow applied in DataDisplayCard
             />
           </div>
         </section>
@@ -95,16 +98,16 @@ export default function DashboardPage() {
         <Separator className="my-6 bg-primary/40 h-[1px]" />
 
         <section 
-          className="space-y-4 p-4 bg-card/50 border border-border/50 rounded-md shadow-inner"
+          className="space-y-4 p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" // use neon-outline-primary
           style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
-           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-4">// Fuel Consumption Analysis</h2>
+           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2"> // Fuel Consumption Analysis</h2>
           <div className="flex justify-center">
             <Button 
               onClick={() => setShowFuelTrend(!showFuelTrend)}
               size="lg"
               variant="outline"
-              className="text-base px-10 py-6 border-2 border-primary hover:bg-primary/20 hover:text-accent active:bg-primary/30 text-accent tracking-wider rounded-full" // Added rounded-full for capsule shape
+              className="text-base px-10 py-6 border-2 border-primary hover:border-primary active:border-primary text-primary hover:text-primary-foreground active:text-primary-foreground tracking-wider rounded-full transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_15px_hsl(var(--primary)),0_0_25px_hsl(var(--primary)/0.8)] active:scale-100"
             >
               <BarChartHorizontalBig className="mr-3 h-6 w-6" />
               {showFuelTrend ? 'Close Fuel Analysis' : 'Initiate Fuel Trend Plot'}
@@ -113,16 +116,16 @@ export default function DashboardPage() {
 
           {showFuelTrend && (
             <Card 
-              className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border border-primary/50"
+              className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4" // neon-outline-chart4 for red/pink glow
               style={{ clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)' }}
             >
-              <CardHeader className="border-b border-primary/30 px-8"> {/* Increased horizontal padding */}
+              <CardHeader className="border-b border-primary/30 px-10 py-4"> {/* Increased padding */}
                 <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
-                <CardDescription className="text-center text-muted-foreground">
+                <CardDescription className="text-center text-muted-foreground/80">
                   Real-time fuel consumption projection over temporal segments.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="pt-6 px-8"> {/* Increased horizontal padding */}
+              <CardContent className="pt-6 px-10"> {/* Increased padding */}
                 <FuelTrendChart />
               </CardContent>
             </Card>
@@ -133,12 +136,11 @@ export default function DashboardPage() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-muted-foreground p-2">
             <div className="flex items-center space-x-2">
-                <AlertTriangle size={16} className="text-yellow-500"/>
+                <AlertTriangle size={16} className="text-yellow-500 animate-pulse"/>
                 <span>Simulated data stream for demonstration purposes. Anomaly detection inactive.</span>
             </div>
             <p className="md:text-right">Last telemetry sync: {systemTime.slice(0,8)}</p>
         </div>
-
 
         <footer className="text-center pt-6 pb-2 text-muted-foreground text-xs border-t border-primary/20">
           <p>&copy; {new Date().getFullYear()} Sakura Telemetry Systems Ltd. // Secure Connection Established</p>

@@ -7,29 +7,29 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
-import { Line, LineChart, XAxis, YAxis, CartesianGrid, Legend } from "recharts"; // Recharts is used by shadcn/ui/chart
+import { Line, LineChart, XAxis, YAxis, CartesianGrid, Legend } from "recharts"; 
 
 interface FuelDataPoint {
   time: string;
   fuel: number;
 }
 
+// Chart config now uses --chart-1 (red) for fuel
 const chartConfig = {
   fuel: {
     label: "Fuel %",
-    color: "hsl(var(--chart-1))", // Use --chart-1 for fuel line (Vibrant Pink/Magenta)
+    color: "hsl(var(--chart-1))", 
   },
 } satisfies ChartConfig;
 
 export function FuelTrendChart() {
-  // Simulated fuel trend data
   const generateFuelData = (): FuelDataPoint[] => {
     const data: FuelDataPoint[] = [];
-    let currentFuel = 80 + Math.random() * 10; // Start with some variation
-    for (let i = 0; i < 12; i++) { // 12 data points for trend
+    let currentFuel = 80 + Math.random() * 10; 
+    for (let i = 0; i < 12; i++) { 
       data.push({ time: `T-${11 - i}min`, fuel: parseFloat(currentFuel.toFixed(1)) });
-      currentFuel -= (Math.random() * 2 + 0.5); // Gradual decrease
-      currentFuel = Math.max(20, currentFuel); // Ensure fuel doesn't drop too low
+      currentFuel -= (Math.random() * 2 + 0.5); 
+      currentFuel = Math.max(20, currentFuel); 
     }
     return data;
   };
@@ -48,13 +48,13 @@ export function FuelTrendChart() {
           bottom: 5,
         }}
       >
-        <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="hsl(var(--border) / 0.5)" />
+        <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="hsl(var(--border) / 0.3)" /> {/* Lighter grid */}
         <XAxis
           dataKey="time"
           tickLine={false}
           axisLine={false}
           tickMargin={8}
-          tickFormatter={(value) => value.slice(0, 6)} // Shorten time label if needed
+          tickFormatter={(value) => value.slice(0, 6)} 
           stroke="hsl(var(--muted-foreground))"
         />
         <YAxis
@@ -67,7 +67,11 @@ export function FuelTrendChart() {
         />
         <ChartTooltip
           cursor={true}
-          content={<ChartTooltipContent indicator="line" />}
+          content={<ChartTooltipContent 
+            indicator="line" 
+            labelClassName="text-sm text-foreground"
+            className="bg-popover/80 backdrop-blur-sm border-primary/50" 
+          />}
         />
         <Legend content={({ payload }) => (
           <div className="flex justify-center mt-4">
@@ -82,11 +86,13 @@ export function FuelTrendChart() {
         <Line
           dataKey="fuel"
           type="monotone"
-          stroke="var(--color-fuel)"
+          stroke="var(--color-fuel)" // This will now use hsl(var(--chart-1)) which is red
           strokeWidth={3}
           dot={{
             fill: "var(--color-fuel)",
             r: 4,
+            strokeWidth: 1,
+            stroke: "hsl(var(--background))"
           }}
           activeDot={{
             r: 6,
