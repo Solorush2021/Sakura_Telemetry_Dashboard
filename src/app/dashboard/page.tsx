@@ -70,11 +70,11 @@ export default function DashboardPage() {
         </div>
 
         <section 
-          className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary apply-standard-tilt"
-          // Removed clipPath style
+          className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary"
+          style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
-          <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer straighten-tilted-content"> // Core Metrics Array</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-6 straighten-tilted-content"> {/* Content inside is straightened */}
+          <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Core Metrics Array</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-6">
             <DataDisplayCard
               title="Fuel Reserves"
               value={fuel}
@@ -100,22 +100,20 @@ export default function DashboardPage() {
 
         <section className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           <div 
-            className="lg:col-span-2 flex flex-col p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary flex-grow justify-center apply-standard-tilt"
-            // Removed clipPath style
+            className="lg:col-span-2 flex flex-col p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary flex-grow justify-center"
+            style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
           >
-            <div className="straighten-tilted-content w-full"> {/* Wrapper for straightening */}
-              <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Fuel Consumption Analysis</h2>
-              <div className="flex justify-center px-6">
-                <Button 
-                  onClick={() => setShowFuelTrend(!showFuelTrend)}
-                  size="lg"
-                  variant="outline"
-                  className="text-base px-10 py-6 border-2 border-primary hover:border-primary active:border-primary text-primary hover:text-primary-foreground active:text-primary-foreground tracking-wider rounded-full transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_15px_hsl(var(--primary)),0_0_25px_hsl(var(--primary)/0.8)] active:scale-100"
-                >
-                  <BarChartHorizontalBig className="mr-3 h-6 w-6" />
-                  {showFuelTrend ? 'Close Fuel Analysis' : 'Initiate Fuel Trend Plot'}
-                </Button>
-              </div>
+            <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Fuel Consumption Analysis</h2>
+            <div className="flex justify-center px-6">
+              <Button 
+                onClick={() => setShowFuelTrend(!showFuelTrend)}
+                size="lg"
+                variant="outline"
+                className="text-base px-10 py-6 border-2 border-primary hover:border-primary active:border-primary text-primary hover:text-primary-foreground active:text-primary-foreground tracking-wider rounded-full transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_15px_hsl(var(--primary)),0_0_25px_hsl(var(--primary)/0.8)] active:scale-100"
+              >
+                <BarChartHorizontalBig className="mr-3 h-6 w-6" />
+                {showFuelTrend ? 'Close Fuel Analysis' : 'Initiate Fuel Trend Plot'}
+              </Button>
             </div>
           </div>
 
@@ -127,7 +125,6 @@ export default function DashboardPage() {
         {showFuelTrend && (
           <Card 
             className="mt-6 shadow-xl bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4" 
-            // This card remains non-tilted
           >
             <CardHeader className="border-b border-primary/30 px-10 py-4">
               <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
