@@ -101,7 +101,7 @@ export default function DashboardPage() {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div 
             className="lg:col-span-1 flex flex-col p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary flex-grow justify-center"
-            style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
+            style={{ clipPath: 'polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%)' }}
           >
             <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Fuel Consumption Analysis</h2>
             <div className="flex justify-center px-6">
