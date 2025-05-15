@@ -40,11 +40,11 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-background text-foreground p-2 md:p-4">
       <div className="relative container mx-auto border border-primary/20 rounded-lg p-4 md:p-6 shadow-2xl bg-background/80 backdrop-blur-md space-y-6">
-        {/* Decorative corner elements */}
-        <div className="absolute -top-1 -left-1 w-8 h-8 border-t-2 border-l-2 border-accent/70 rounded-tl-lg opacity-50"></div>
-        <div className="absolute -top-1 -right-1 w-8 h-8 border-t-2 border-r-2 border-accent/70 rounded-tr-lg opacity-50"></div>
-        <div className="absolute -bottom-1 -left-1 w-8 h-8 border-b-2 border-l-2 border-accent/70 rounded-bl-lg opacity-50"></div>
-        <div className="absolute -bottom-1 -right-1 w-8 h-8 border-b-2 border-r-2 border-accent/70 rounded-br-lg opacity-50"></div>
+        {/* Decorative corner elements - made more prominent */}
+        <div className="absolute -top-1 -left-1 w-10 h-10 border-t-4 border-l-4 border-accent/70 rounded-tl-lg opacity-70"></div>
+        <div className="absolute -top-1 -right-1 w-10 h-10 border-t-4 border-r-4 border-accent/70 rounded-tr-lg opacity-70"></div>
+        <div className="absolute -bottom-1 -left-1 w-10 h-10 border-b-4 border-l-4 border-accent/70 rounded-bl-lg opacity-70"></div>
+        <div className="absolute -bottom-1 -right-1 w-10 h-10 border-b-4 border-r-4 border-accent/70 rounded-br-lg opacity-70"></div>
         
         <header className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0 pb-4 border-b-2 border-primary/30">
           <div className="flex items-center space-x-4">
@@ -65,9 +65,12 @@ export default function DashboardPage() {
           <p className="text-right">Data Stream: <span className="text-green-400">ACTIVE</span></p>
         </div>
 
-        <section className="p-4 bg-card/50 border border-border/50 rounded-md shadow-inner">
-          <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest">// Core Metrics Array</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <section 
+          className="p-4 bg-card/50 border border-border/50 rounded-md shadow-inner"
+          style={{ clipPath: 'polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%)' }}
+        >
+          <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-4">// Core Metrics Array</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-2">
             <DataDisplayCard
               title="Fuel Reserves"
               value={fuel}
@@ -91,14 +94,17 @@ export default function DashboardPage() {
         
         <Separator className="my-6 bg-primary/40 h-[1px]" />
 
-        <section className="space-y-4 p-4 bg-card/50 border border-border/50 rounded-md shadow-inner">
-           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest">// Fuel Consumption Analysis</h2>
+        <section 
+          className="space-y-4 p-4 bg-card/50 border border-border/50 rounded-md shadow-inner"
+          style={{ clipPath: 'polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%)' }}
+        >
+           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-4">// Fuel Consumption Analysis</h2>
           <div className="flex justify-center">
             <Button 
               onClick={() => setShowFuelTrend(!showFuelTrend)}
               size="lg"
               variant="outline"
-              className="text-base px-10 py-6 border-2 border-primary hover:bg-primary/20 hover:text-accent active:bg-primary/30 text-accent tracking-wider"
+              className="text-base px-10 py-6 border-2 border-primary hover:bg-primary/20 hover:text-accent active:bg-primary/30 text-accent tracking-wider rounded-full" // Added rounded-full for capsule shape
             >
               <BarChartHorizontalBig className="mr-3 h-6 w-6" />
               {showFuelTrend ? 'Close Fuel Analysis' : 'Initiate Fuel Trend Plot'}
@@ -106,14 +112,17 @@ export default function DashboardPage() {
           </div>
 
           {showFuelTrend && (
-            <Card className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border border-primary/50">
-              <CardHeader className="border-b border-primary/30">
+            <Card 
+              className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border border-primary/50"
+              style={{ clipPath: 'polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)' }}
+            >
+              <CardHeader className="border-b border-primary/30 px-8"> {/* Increased horizontal padding */}
                 <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
                 <CardDescription className="text-center text-muted-foreground">
                   Real-time fuel consumption projection over temporal segments.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="pt-6">
+              <CardContent className="pt-6 px-8"> {/* Increased horizontal padding */}
                 <FuelTrendChart />
               </CardContent>
             </Card>
