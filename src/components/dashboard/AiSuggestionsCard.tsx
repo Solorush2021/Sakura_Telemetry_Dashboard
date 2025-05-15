@@ -22,11 +22,11 @@ export function AiSuggestionsCard({ currentFuel, className }: AiSuggestionsCardP
       className={`shadow-lg flex flex-col bg-card/80 backdrop-blur-sm border-transparent rounded-lg overflow-hidden neon-outline-primary ${className}`}
       style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
     >
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-4 pl-10 pr-6 md:pl-14 md:pr-8">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-4 pl-16 pr-6 md:pl-20 md:pr-8">
         <CardTitle className="text-lg font-semibold text-primary uppercase tracking-wider">AI Diagnostics & Projections</CardTitle>
         <TrendingUp size={28} className="text-primary animate-pulse-scale-glow" />
       </CardHeader>
-      <CardContent className="flex-grow flex flex-col space-y-6 pt-2 pl-10 pr-6 md:pl-14 md:pr-8">
+      <CardContent className="flex-grow flex flex-col space-y-6 pt-2 pl-16 pr-6 md:pl-20 md:pr-8">
         <div>
           <div className="flex items-center space-x-2 mb-2">
             <Lightbulb size={20} className="text-accent" />
