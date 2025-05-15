@@ -107,16 +107,16 @@
 }
 
 @layer utilities {
-  .neon-outline-primary {
+  .neon-outline-primary { /* This might be replaced or be less used now */
     @apply shadow-[0_0_2px_hsl(var(--primary)/0.8),0_0_5px_hsl(var(--primary)/0.6),0_0_10px_hsl(var(--primary)/0.4),inset_0_0_5px_hsl(var(--card)/0.5)];
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
   .neon-outline-primary:hover {
-    transform: translateY(-3px) scale(1.02);
+    /* transform: translateY(-3px) scale(1.02); */ /* Handled by futuristic-tilted-box hover */
     @apply shadow-[0_0_4px_hsl(var(--primary)/0.9),0_0_8px_hsl(var(--primary)/0.7),0_0_15px_hsl(var(--primary)/0.5),inset_0_0_8px_hsl(var(--card)/0.6)];
   }
 
-  .neon-outline-chart4 { /* For red/pinkish glow */
+  .neon-outline-chart4 { /* For red/pinkish glow on graph card border if needed */
     @apply shadow-[0_0_2px_hsl(var(--chart-4)/0.8),0_0_5px_hsl(var(--chart-4)/0.6),0_0_10px_hsl(var(--chart-4)/0.4),0_0_1px_#fff,inset_0_0_8px_hsl(var(--card)/0.5)];
   }
 
@@ -141,15 +141,43 @@
   .animate-text-shimmer {
     background-image: linear-gradient(
       -75deg,
-      hsl(var(--primary)/0.15) 30%, /* Dimmer base */
-      hsl(var(--primary)/0.7) 50%,    /* Brighter highlight */
-      hsl(var(--primary)/0.15) 70%     /* Dimmer base */
+      hsl(var(--primary)/0.3) 30%, /* Dimmer base, not fully transparent */
+      hsl(var(--primary)/0.8) 50%, /* Brighter highlight */
+      hsl(var(--primary)/0.3) 70%  /* Dimmer base */
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 2.5s infinite linear; /* Faster animation */
+  }
+
+  /* Futuristic Tilted Box Styles */
+  .futuristic-tilted-box {
+    @apply transition-all duration-300 ease-in-out;
+    transform: rotate(-3deg);
+    box-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--accent));
+  }
+
+  .futuristic-tilted-box-metrics {
+    @apply futuristic-tilted-box;
+    transform: rotate(-3deg) translateY(5px);
+  }
+
+  .futuristic-tilted-box:hover {
+    transform: rotate(-2deg);
+    box-shadow: 0 0 15px hsl(var(--primary)), 0 0 30px hsl(var(--accent));
+  }
+
+  .futuristic-tilted-box-metrics:hover {
+    transform: rotate(-2deg) translateY(5px); /* Maintain translateY on hover for metrics cards */
+    box-shadow: 0 0 15px hsl(var(--primary)), 0 0 30px hsl(var(--accent)); /* Ensure hover shadow is also applied */
+  }
+  
+  .futuristic-text-straightener {
+    @apply block; /* Use block to allow transform */
+    transform: rotate(3deg);
+    /* Add padding here if necessary to compensate for rotation within parent */
   }
 }
 
@@ -171,10 +199,10 @@
 
 @keyframes text-flicker-glow {
   0%, 100% {
-    text-shadow: 0 0 3px hsl(var(--primary-foreground)), 0 0 5px hsl(var(--primary)/0.8), 0 0 8px hsl(var(--primary)/0.6), 0 0 2px hsl(var(--primary)/0.5);
+    text-shadow: 0 0 3px hsl(var(--primary-foreground)), 0 0 5px hsl(var(--primary)/0.8), 0 0 8px hsl(var(--primary)/0.6), 0 0 2px hsl(var(--primary)/0.5), 0 0 1px hsl(var(--primary)/0.4);
   }
   50% {
-    text-shadow: 0 0 4px hsl(var(--primary-foreground)), 0 0 7px hsl(var(--primary)/0.9), 0 0 10px hsl(var(--primary)/0.7), 0 0 3px hsl(var(--primary)/0.6);
+    text-shadow: 0 0 4px hsl(var(--primary-foreground)), 0 0 7px hsl(var(--primary)/0.9), 0 0 10px hsl(var(--primary)/0.7), 0 0 3px hsl(var(--primary)/0.6), 0 0 2px hsl(var(--primary)/0.5);
   }
 }
 

@@ -19,37 +19,39 @@ export function AiSuggestionsCard({ currentFuel, className }: AiSuggestionsCardP
 
   return (
     <Card
-      className={`shadow-lg flex flex-col bg-card/80 backdrop-blur-sm border-transparent rounded-lg overflow-hidden neon-outline-primary ${className}`}
-      style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
+      className={`shadow-lg flex flex-col bg-card/80 backdrop-blur-sm border-transparent rounded-lg overflow-hidden futuristic-tilted-box ${className}`}
+      // Removed clipPath style
     >
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-6 px-8 md:px-10">
-        <CardTitle className="text-lg font-semibold text-primary uppercase tracking-wider">AI Diagnostics & Projections</CardTitle>
-        <TrendingUp size={28} className="text-primary animate-pulse-scale-glow" />
-      </CardHeader>
-      <CardContent className="flex-grow flex flex-col space-y-5 p-6 pt-2 px-8 md:px-10 text-sm">
-        <div>
-          <div className="flex items-center space-x-2 mb-2">
-            <Lightbulb size={20} className="text-accent" />
-            <h3 className="font-semibold text-muted-foreground tracking-wide">Fuel Efficiency Tips:</h3>
+      <div className="futuristic-text-straightener p-2"> {/* Added padding to this wrapper */}
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-4 px-6 md:px-8">
+          <CardTitle className="text-lg font-semibold text-primary uppercase tracking-wider">AI Diagnostics & Projections</CardTitle>
+          <TrendingUp size={28} className="text-primary animate-pulse-scale-glow" />
+        </CardHeader>
+        <CardContent className="flex-grow flex flex-col space-y-5 p-6 pt-2 px-6 md:px-8 text-sm">
+          <div>
+            <div className="flex items-center space-x-2 mb-2">
+              <Lightbulb size={20} className="text-accent" />
+              <h3 className="font-semibold text-muted-foreground tracking-wide">Fuel Efficiency Tips:</h3>
+            </div>
+            <ul className="list-disc list-inside space-y-1.5 text-foreground/80 pl-2">
+              {fuelEfficiencyTips.slice(0, 2).map((tip, index) => ( // Show first 2 tips
+                <li key={index}>{tip}</li>
+              ))}
+            </ul>
           </div>
-          <ul className="list-disc list-inside space-y-1.5 text-foreground/80 pl-2">
-            {fuelEfficiencyTips.slice(0, 2).map((tip, index) => ( // Show first 2 tips
-              <li key={index}>{tip}</li>
-            ))}
-          </ul>
-        </div>
-        
-        <div>
-          <div className="flex items-center space-x-2 mb-1">
-            <Route size={20} className="text-accent" />
-            <h3 className="font-semibold text-muted-foreground tracking-wide">Estimated Range:</h3>
+          
+          <div>
+            <div className="flex items-center space-x-2 mb-1">
+              <Route size={20} className="text-accent" />
+              <h3 className="font-semibold text-muted-foreground tracking-wide">Estimated Range:</h3>
+            </div>
+            <p className="text-2xl font-bold text-accent animate-text-shimmer">
+              {estimatedRange} km
+            </p>
+            <p className="text-xs text-muted-foreground/70">(Based on current fuel and optimal conditions)</p>
           </div>
-          <p className="text-2xl font-bold text-accent animate-text-shimmer">
-            {estimatedRange} km
-          </p>
-          <p className="text-xs text-muted-foreground/70">(Based on current fuel and optimal conditions)</p>
-        </div>
-      </CardContent>
+        </CardContent>
+      </div>
     </Card>
   );
 }
