@@ -25,15 +25,15 @@ export function LoginForm() {
     setError(''); // Clear previous errors
 
     // Hardcoded credentials
-    if (username === 'admin' && password === 'sakura_telemetry_2024!') {
-      login('dummy-hardcoded-sakura-jwt-token');
+    if (username === 'admin' && password === 'admin') {
+      login('dummy-hardcoded-sakura-jwt-token'); // Using a placeholder token
       toast({
         title: "Login Successful",
         description: "Welcome to Sakura Telemetry!",
       });
       router.push('/dashboard');
     } else {
-      setError('Invalid username or password. Try "admin" and "sakura_telemetry_2024!".');
+      setError('Invalid username or password. Try "admin" for both fields.');
       toast({
         title: "Login Failed",
         description: "Invalid username or password.",
@@ -69,7 +69,7 @@ export function LoginForm() {
               <Input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                placeholder="sakura_telemetry_2024!"
+                placeholder="admin"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
