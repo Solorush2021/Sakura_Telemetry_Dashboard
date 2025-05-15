@@ -69,7 +69,7 @@ export default function DashboardPage() {
         </div>
 
         <section 
-          className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" // use neon-outline-primary
+          className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" 
           style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2"> // Core Metrics Array</h2>
@@ -78,19 +78,19 @@ export default function DashboardPage() {
               title="Fuel Reserves"
               value={fuel}
               unit="%"
-              icon={<Fuel size={32} />} // Glow applied in DataDisplayCard
+              icon={<Fuel size={32} />} 
             />
             <DataDisplayCard
               title="Engine Output"
               value={rpm.toLocaleString()}
               unit="RPM"
-              icon={<Activity size={32} />} // Glow applied in DataDisplayCard
+              icon={<Activity size={32} />} 
             />
             <DataDisplayCard
               title="GNSS Precision"
               value={gnssAccuracy}
               unit="%"
-              icon={<SignalHigh size={32} />} // Glow applied in DataDisplayCard
+              icon={<SignalHigh size={32} />} 
             />
           </div>
         </section>
@@ -98,7 +98,7 @@ export default function DashboardPage() {
         <Separator className="my-6 bg-primary/40 h-[1px]" />
 
         <section 
-          className="space-y-4 p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" // use neon-outline-primary
+          className="space-y-4 p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" 
           style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
            <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2"> // Fuel Consumption Analysis</h2>
@@ -116,16 +116,15 @@ export default function DashboardPage() {
 
           {showFuelTrend && (
             <Card 
-              className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4" // neon-outline-chart4 for red/pink glow
-              style={{ clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)' }}
+              className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4" // Graph card is now rectangular
             >
-              <CardHeader className="border-b border-primary/30 px-10 py-4"> {/* Increased padding */}
+              <CardHeader className="border-b border-primary/30 px-10 py-4"> 
                 <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
                 <CardDescription className="text-center text-muted-foreground/80">
                   Real-time fuel consumption projection over temporal segments.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="pt-6 px-10"> {/* Increased padding */}
+              <CardContent className="pt-6 px-10"> 
                 <FuelTrendChart />
               </CardContent>
             </Card>
