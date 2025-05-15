@@ -17,7 +17,7 @@ interface FuelDataPoint {
 const chartConfig = {
   fuel: {
     label: "Fuel %",
-    color: "hsl(0, 85%, 65%)", // A vibrant red for the fuel line
+    color: "hsl(var(--chart-1))", // Use --chart-1 for fuel line (Vibrant Pink/Magenta)
   },
 } satisfies ChartConfig;
 
