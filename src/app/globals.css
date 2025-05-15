@@ -40,7 +40,7 @@
     --chart-2: 180 90% 55%;  /* Bright Cyan (Accent) */
     --chart-3: 145 70% 75%;  /* Bright Mint Green (Foreground) */
     --chart-4: 340 90% 65%;  /* Vibrant Pink/Red (alternative pink/red) */
-    --chart-5: 50 100% 60%;  /* Bright Yellow */
+    --chart-5: 50 100% 60%;  /* Bright Yellow for estimated fuel line */
     
     --radius: 0.5rem;
 
@@ -141,15 +141,15 @@
   .animate-text-shimmer {
     background-image: linear-gradient(
       -75deg,
-      transparent 30%,
-      hsl(var(--primary)/0.4) 50%,
-      transparent 70%
+      hsl(var(--primary)/0.15) 30%, /* Dimmer base */
+      hsl(var(--primary)/0.7) 50%,    /* Brighter highlight */
+      hsl(var(--primary)/0.15) 70%     /* Dimmer base */
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 5s infinite linear;
+    animation: shimmer 2.5s infinite linear; /* Faster animation */
   }
 }
 
