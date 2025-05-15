@@ -1,3 +1,4 @@
+
 // src/app/dashboard/page.tsx
 "use client";
 
@@ -113,24 +114,24 @@ export default function DashboardPage() {
               {showFuelTrend ? 'Close Fuel Analysis' : 'Initiate Fuel Trend Plot'}
             </Button>
           </div>
-
-          {showFuelTrend && (
-            <Card 
-              className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4" // Graph card is now rectangular
-            >
-              <CardHeader className="border-b border-primary/30 px-10 py-4"> 
-                <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
-                <CardDescription className="text-center text-muted-foreground/80">
-                  Real-time fuel consumption projection over temporal segments.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-6 px-10"> 
-                <FuelTrendChart />
-              </CardContent>
-            </Card>
-          )}
         </section>
-
+          
+        {showFuelTrend && (
+          <Card 
+            className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4" // This card is now outside the clipped section
+          >
+            <CardHeader className="border-b border-primary/30 px-10 py-4"> 
+              <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
+              <CardDescription className="text-center text-muted-foreground/80">
+                Real-time fuel consumption projection over temporal segments.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-6 px-10"> 
+              <FuelTrendChart />
+            </CardContent>
+          </Card>
+        )}
+        
         <Separator className="my-6 bg-primary/40 h-[1px]" />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-muted-foreground p-2">
