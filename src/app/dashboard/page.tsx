@@ -52,7 +52,7 @@ export default function DashboardPage() {
           <div className="flex items-center space-x-4">
             <CherryBlossomIcon className="h-12 w-12 text-primary animate-pulse neon-glow" />
             <div>
-              <h1 className="text-4xl font-bold text-foreground tracking-tight">SAKURA TELEMETRY</h1>
+              <h1 className="text-4xl font-bold text-foreground tracking-tight animate-title-glow">SAKURA TELEMETRY</h1>
               <p className="text-sm text-primary/80 uppercase tracking-wider">Operational Dashboard // v2.1</p>
             </div>
           </div>
@@ -71,10 +71,12 @@ export default function DashboardPage() {
 
         <section 
           className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" 
+           // More aggressive clip-path for sci-fi feel, ensure padding helps visibility
           style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
-          <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2"> // Core Metrics Array</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-2">
+          <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2 animate-text-shimmer"> // Core Metrics Array</h2>
+          {/* Increased padding for content visibility */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-6">
             <DataDisplayCard
               title="Fuel Reserves"
               value={fuel}
@@ -98,12 +100,14 @@ export default function DashboardPage() {
         
         <Separator className="my-6 bg-primary/40 h-[1px]" />
 
+        {/* This section for the button will keep its clip-path */}
         <section 
           className="space-y-4 p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" 
+          // More aggressive clip-path for sci-fi feel
           style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
-           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2"> // Fuel Consumption Analysis</h2>
-          <div className="flex justify-center">
+           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2 animate-text-shimmer"> // Fuel Consumption Analysis</h2>
+          <div className="flex justify-center px-6"> {/* Added padding for content within clipped section */}
             <Button 
               onClick={() => setShowFuelTrend(!showFuelTrend)}
               size="lg"
@@ -116,17 +120,18 @@ export default function DashboardPage() {
           </div>
         </section>
           
+        {/* The FuelTrendChart Card is now outside the clipped section to remain rectangular */}
         {showFuelTrend && (
           <Card 
-            className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4" // This card is now outside the clipped section
+            className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4" 
           >
-            <CardHeader className="border-b border-primary/30 px-10 py-4"> 
+            <CardHeader className="border-b border-primary/30 px-10 py-4"> {/* Increased padding */}
               <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
               <CardDescription className="text-center text-muted-foreground/80">
                 Real-time fuel consumption projection over temporal segments.
               </CardDescription>
             </CardHeader>
-            <CardContent className="pt-6 px-10"> 
+            <CardContent className="pt-6 px-10"> {/* Increased padding */}
               <FuelTrendChart />
             </CardContent>
           </Card>
