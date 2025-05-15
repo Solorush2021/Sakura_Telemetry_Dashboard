@@ -74,7 +74,7 @@ export default function DashboardPage() {
            // More aggressive clip-path for sci-fi feel, ensure padding helps visibility
           style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
-          <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2 animate-text-shimmer"> // Core Metrics Array</h2>
+          <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Core Metrics Array</h2>
           {/* Increased padding for content visibility */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-6">
             <DataDisplayCard
@@ -106,7 +106,7 @@ export default function DashboardPage() {
           // More aggressive clip-path for sci-fi feel
           style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
         >
-           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest px-6 py-2 animate-text-shimmer"> // Fuel Consumption Analysis</h2>
+           <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Fuel Consumption Analysis</h2>
           <div className="flex justify-center px-6"> {/* Added padding for content within clipped section */}
             <Button 
               onClick={() => setShowFuelTrend(!showFuelTrend)}
