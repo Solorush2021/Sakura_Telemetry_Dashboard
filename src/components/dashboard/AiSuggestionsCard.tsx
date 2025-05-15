@@ -14,7 +14,7 @@ export function AiSuggestionsCard({ currentFuel, className }: AiSuggestionsCardP
     "Maintain RPM between 2000-2500 for optimal efficiency.",
     "Reduce prolonged idling; turn off engine if stopped for >1 min.",
     "Ensure tires are properly inflated to reduce rolling resistance.",
-    "Avoid rapid acceleration and hard braking.",
+    "Avoid rapid acceleration and hard braking for smoother fuel usage.",
   ];
 
   return (
@@ -26,15 +26,15 @@ export function AiSuggestionsCard({ currentFuel, className }: AiSuggestionsCardP
         <CardTitle className="text-lg font-semibold text-primary uppercase tracking-wider">AI Diagnostics & Projections</CardTitle>
         <TrendingUp size={28} className="text-primary animate-pulse-scale-glow" />
       </CardHeader>
-      <CardContent className="flex-grow flex flex-col space-y-5 pt-2 pl-10 pr-6 md:pl-14 md:pr-8 text-sm">
+      <CardContent className="flex-grow flex flex-col space-y-6 pt-2 pl-10 pr-6 md:pl-14 md:pr-8">
         <div>
           <div className="flex items-center space-x-2 mb-2">
             <Lightbulb size={20} className="text-accent" />
             <h3 className="font-semibold text-muted-foreground tracking-wide">Fuel Efficiency Tips:</h3>
           </div>
-          <ul className="list-disc list-inside space-y-1.5 text-foreground/80 pl-2">
-            {fuelEfficiencyTips.slice(0, 2).map((tip, index) => ( // Show first 2 tips
-              <li key={index}>{tip}>{tip}</li>
+          <ul className="list-disc list-inside space-y-1.5 text-foreground/90 pl-2 text-base">
+            {fuelEfficiencyTips.slice(0, 3).map((tip, index) => ( 
+              <li key={index}>{tip}</li>
             ))}
           </ul>
         </div>
@@ -44,7 +44,7 @@ export function AiSuggestionsCard({ currentFuel, className }: AiSuggestionsCardP
             <Route size={20} className="text-accent" />
             <h3 className="font-semibold text-muted-foreground tracking-wide">Estimated Range:</h3>
           </div>
-          <p className="text-2xl font-bold text-accent animate-text-shimmer">
+          <p className="text-3xl font-bold text-accent animate-text-shimmer">
             {estimatedRange} km
           </p>
           <p className="text-xs text-muted-foreground/70">(Based on current fuel and optimal conditions)</p>

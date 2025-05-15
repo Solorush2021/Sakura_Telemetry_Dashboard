@@ -60,7 +60,7 @@ export function LoginForm() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className="bg-input text-foreground placeholder:text-muted-foreground"
+              className="bg-input text-foreground placeholder:text-muted-foreground text-base"
             />
           </div>
           <div className="space-y-2">
@@ -73,7 +73,7 @@ export function LoginForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="bg-input text-foreground placeholder:text-muted-foreground"
+                className="bg-input text-foreground placeholder:text-muted-foreground text-base"
               />
               <Button
                 type="button"
