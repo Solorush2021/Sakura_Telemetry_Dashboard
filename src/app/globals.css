@@ -107,12 +107,12 @@
 }
 
 @layer utilities {
-  .neon-outline-primary { /* This might be replaced or be less used now */
+  .neon-outline-primary { 
     @apply shadow-[0_0_2px_hsl(var(--primary)/0.8),0_0_5px_hsl(var(--primary)/0.6),0_0_10px_hsl(var(--primary)/0.4),inset_0_0_5px_hsl(var(--card)/0.5)];
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
   .neon-outline-primary:hover {
-    /* transform: translateY(-3px) scale(1.02); */ /* Handled by futuristic-tilted-box hover */
+    transform: translateY(-3px) scale(1.02);
     @apply shadow-[0_0_4px_hsl(var(--primary)/0.9),0_0_8px_hsl(var(--primary)/0.7),0_0_15px_hsl(var(--primary)/0.5),inset_0_0_8px_hsl(var(--card)/0.6)];
   }
 
@@ -150,34 +150,6 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 2.5s infinite linear; /* Faster animation */
-  }
-
-  /* Futuristic Tilted Box Styles */
-  .futuristic-tilted-box {
-    @apply transition-all duration-300 ease-in-out;
-    transform: rotate(-3deg);
-    box-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--accent));
-  }
-
-  .futuristic-tilted-box-metrics {
-    @apply futuristic-tilted-box;
-    transform: rotate(-3deg) translateY(5px);
-  }
-
-  .futuristic-tilted-box:hover {
-    transform: rotate(-2deg);
-    box-shadow: 0 0 15px hsl(var(--primary)), 0 0 30px hsl(var(--accent));
-  }
-
-  .futuristic-tilted-box-metrics:hover {
-    transform: rotate(-2deg) translateY(5px); /* Maintain translateY on hover for metrics cards */
-    box-shadow: 0 0 15px hsl(var(--primary)), 0 0 30px hsl(var(--accent)); /* Ensure hover shadow is also applied */
-  }
-  
-  .futuristic-text-straightener {
-    @apply block; /* Use block to allow transform */
-    transform: rotate(3deg);
-    /* Add padding here if necessary to compensate for rotation within parent */
   }
 }
 

@@ -70,10 +70,10 @@ export default function DashboardPage() {
         </div>
 
         <section 
-          className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner futuristic-tilted-box" 
-          // Removed clipPath style
+          className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" 
+          style={{ clipPath: 'polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%)' }}
         >
-          <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer futuristic-text-straightener"> // Core Metrics Array</h2>
+          <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Core Metrics Array</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-6">
             <DataDisplayCard
               title="Fuel Reserves"
@@ -101,11 +101,11 @@ export default function DashboardPage() {
         <section className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           <div className="lg:col-span-3 space-y-6">
             <div 
-              className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner futuristic-tilted-box" 
-              // Removed clipPath style
+              className="p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary" 
+              style={{ clipPath: 'polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%)' }}
             >
-              <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer futuristic-text-straightener"> // Fuel Consumption Analysis</h2>
-              <div className="flex justify-center px-6 futuristic-text-straightener">
+              <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Fuel Consumption Analysis</h2>
+              <div className="flex justify-center px-6">
                 <Button 
                   onClick={() => setShowFuelTrend(!showFuelTrend)}
                   size="lg"
@@ -119,7 +119,7 @@ export default function DashboardPage() {
             </div>
              {showFuelTrend && (
               <Card 
-                className="shadow-xl bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4" // Kept neon-outline-chart4 for graph card as it's not tilted
+                className="shadow-xl bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4"
               >
                 <CardHeader className="border-b border-primary/30 px-10 py-4">
                   <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
