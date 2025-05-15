@@ -8,7 +8,7 @@ type AiSuggestionsCardProps = {
 };
 
 export function AiSuggestionsCard({ currentFuel, className }: AiSuggestionsCardProps) {
-  const estimatedRange = Math.round(currentFuel * 4.5); // Mock calculation: 1% fuel = 4.5km
+  const estimatedRange = Math.round(currentFuel * 4.5); 
 
   const fuelEfficiencyTips = [
     "Maintain RPM between 2000-2500 for optimal efficiency.",
@@ -19,14 +19,14 @@ export function AiSuggestionsCard({ currentFuel, className }: AiSuggestionsCardP
 
   return (
     <Card
-      className={`shadow-lg flex flex-col bg-card/80 backdrop-blur-sm border-transparent rounded-lg overflow-hidden neon-outline-primary ${className}`}
-      style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
+      className={`shadow-lg flex flex-col bg-card/80 backdrop-blur-sm border-transparent rounded-lg overflow-hidden neon-outline-primary apply-standard-tilt ${className}`}
+      // Removed clipPath style
     >
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-4 pl-16 pr-6 md:pl-20 md:pr-8">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-4 pl-16 pr-6 md:pl-20 md:pr-8 straighten-tilted-content">
         <CardTitle className="text-lg font-semibold text-primary uppercase tracking-wider">AI Diagnostics & Projections</CardTitle>
         <TrendingUp size={28} className="text-primary animate-pulse-scale-glow" />
       </CardHeader>
-      <CardContent className="flex-grow flex flex-col space-y-6 pt-2 pl-16 pr-6 md:pl-20 md:pr-8">
+      <CardContent className="flex-grow flex flex-col space-y-6 pt-2 pl-16 pr-6 md:pl-20 md:pr-8 straighten-tilted-content">
         <div>
           <div className="flex items-center space-x-2 mb-2">
             <Lightbulb size={20} className="text-accent" />
