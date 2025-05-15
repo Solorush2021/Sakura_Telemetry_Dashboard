@@ -101,7 +101,7 @@ export default function DashboardPage() {
         <section className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           <div 
             className="lg:col-span-2 flex flex-col p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary flex-grow justify-center"
-            style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
+            style={{ clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)' }}
           >
             <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Fuel Consumption Analysis</h2>
             <div className="flex justify-center px-6">
@@ -143,13 +143,13 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground p-2">
             <div className="flex items-center space-x-2">
                 <AlertTriangle size={16} className="text-yellow-500 animate-pulse"/>
-                <span>Simulated data stream for demonstration purposes. Anomaly detection inactive.</span>
+                <span className="text-sm">Simulated data stream for demonstration purposes. Anomaly detection inactive.</span>
             </div>
-            <p className="md:text-right">Last telemetry sync: {systemTime.slice(0,8)}</p>
+            <p className="md:text-right text-sm">Last telemetry sync: {systemTime.slice(0,8)}</p>
         </div>
 
         <footer className="text-center pt-6 pb-2 text-muted-foreground text-sm border-t border-primary/20">
-          <p>&copy; {new Date().getFullYear()} Sakura Telemetry Systems Ltd. // Secure Connection Established</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} Sakura Telemetry Systems Ltd. // Secure Connection Established</p>
           <p className="font-mono opacity-70 text-xs">STS_DASH_REL_2.1.0 // All rights reserved.</p>
         </footer>
       </div>
