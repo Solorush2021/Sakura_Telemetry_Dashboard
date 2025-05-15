@@ -41,7 +41,7 @@ export function TextRibbon() {
       <div className="absolute inset-0 flex items-center">
         <div className="animate-scroll-text flex items-center pl-4">
             <AlertTriangle size={18} className="text-primary mr-3 shrink-0" />
-            <span className="text-glow-pink-white font-mono uppercase tracking-wider">
+            <span className="text-glow-primary-white font-mono uppercase tracking-wider"> {/* Changed class name */}
                 {/* Repeat message for smooth scrolling effect, Tailwind doesn't handle this well for marquee text content out of box */}
                 {displayMessage} {displayMessage} {displayMessage}
             </span>
