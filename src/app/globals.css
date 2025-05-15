@@ -4,91 +4,90 @@
 
 @layer base {
   :root {
-    /* Style Guidelines: Dark charcoal gray (#333333), Light teal (#64ffda), Soft lavender (#bb86fc) */
-    --background: 0 0% 20%; /* Dark charcoal gray #333333 */
-    --foreground: 168 100% 70%; /* Light teal #64ffda */
+    /* New Sci-Fi Palette: Dark Blue/Black, Vibrant Green, Bright Orange, Cyan Accent, Red Highlight */
+    --background: 220 30% 10%; /* Dark Slate Blue */
+    --foreground: 145 70% 75%; /* Bright Mint Green */
 
-    --card: 0 0% 23%; /* Slightly lighter dark charcoal gray */
-    --card-foreground: 168 100% 70%; /* Light teal */
+    --card: 220 25% 15%; /* Darker Slate Blue for cards */
+    --card-foreground: 145 70% 75%; /* Bright Mint Green */
 
-    --popover: 0 0% 18%; /* Darker charcoal gray */
-    --popover-foreground: 168 100% 70%; /* Light teal */
+    --popover: 220 30% 8%; /* Very Dark Slate Blue for popovers */
+    --popover-foreground: 145 70% 75%; /* Bright Mint Green */
 
-    /* Primary interactive elements & Accent: Soft lavender (#bb86fc) */
-    --primary: 271 96% 76%; 
-    --primary-foreground: 0 0% 100%; /* White */
+    /* Primary interactive elements: Bright Orange */
+    --primary: 25 95% 60%; 
+    --primary-foreground: 0 0% 100%; /* White for contrast on orange */
 
-    /* Secondary elements: Muted Lavender */
-    --secondary: 271 80% 65%;
+    /* Secondary elements: Sky Blue */
+    --secondary: 200 80% 60%;
     --secondary-foreground: 0 0% 100%; /* White */
 
-    --muted: 0 0% 30%; /* Muted dark gray */
-    --muted-foreground: 168 80% 50%; /* Muted teal */
+    --muted: 145 50% 50%; /* Muted Mint Green */
+    --muted-foreground: 145 60% 65%; /* Slightly Brighter Muted Mint Green */
 
-    /* Accent for highlights: Soft lavender (#bb86fc) - same as primary */
-    --accent: 271 96% 76%;
-    --accent-foreground: 0 0% 100%; /* White */
+    /* Accent for highlights: Bright Cyan */
+    --accent: 180 90% 55%;
+    --accent-foreground: 220 30% 10%; /* Dark background for contrast on cyan */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 80% 60%; /* Red */
+    --destructive-foreground: 0 0% 100%; /* White */
 
-    --border: 0 0% 28%; /* Dark gray border */
-    --input: 0 0% 25%; /* Dark gray input background */
-    --ring: 271 96% 80%; /* Lighter Lavender for focus rings */
+    --border: 220 20% 25%; /* Darker, desaturated blue border */
+    --input: 220 20% 20%; /* Dark input background */
+    --ring: 25 95% 70%; /* Lighter Orange for focus rings */
 
-    --chart-1: 271 96% 76%; /* Soft lavender (Primary) */
-    --chart-2: 168 100% 70%; /* Light teal (Foreground) */
-    --chart-3: 45 80% 60%;  /* Muted Gold/Yellow */
-    --chart-4: 210 70% 65%; /* Muted Blue */
-    --chart-5: 140 60% 60%; /* Muted Green */
+    --chart-1: 25 95% 60%;   /* Bright Orange (Primary) */
+    --chart-2: 180 90% 55%;  /* Bright Cyan (Accent) */
+    --chart-3: 145 70% 75%;  /* Bright Mint Green (Foreground) */
+    --chart-4: 340 90% 65%;  /* Vibrant Pink/Red */
+    --chart-5: 50 100% 60%;  /* Bright Yellow */
     
-    --radius: 0.5rem; /* Keep rounded corners */
+    --radius: 0.5rem;
 
-    /* Sidebar vars, update to match new theme if sidebar is used extensively */
-    --sidebar-background: 0 0% 15%; /* Even darker charcoal */
-    --sidebar-foreground: 168 100% 70%;
-    --sidebar-primary: 271 96% 76%;
+    /* Sidebar vars */
+    --sidebar-background: 220 30% 7%; /* Even darker blue */
+    --sidebar-foreground: 145 70% 75%; /* Bright Mint Green */
+    --sidebar-primary: 25 95% 60%; /* Bright Orange */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 271 96% 70%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 25%;
-    --sidebar-ring: 271 96% 80%;
+    --sidebar-accent: 180 90% 55%; /* Bright Cyan */
+    --sidebar-accent-foreground: 220 30% 10%;
+    --sidebar-border: 220 20% 22%;
+    --sidebar-ring: 25 95% 70%;
   }
 
   .dark {
-    /* Same as :root for a forced dark theme */
-    --background: 0 0% 20%;
-    --foreground: 168 100% 70%;
-    --card: 0 0% 23%;
-    --card-foreground: 168 100% 70%;
-    --popover: 0 0% 18%;
-    --popover-foreground: 168 100% 70%;
-    --primary: 271 96% 76%;
+    --background: 220 30% 10%;
+    --foreground: 145 70% 75%;
+    --card: 220 25% 15%;
+    --card-foreground: 145 70% 75%;
+    --popover: 220 30% 8%;
+    --popover-foreground: 145 70% 75%;
+    --primary: 25 95% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 271 80% 65%;
+    --secondary: 200 80% 60%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 30%;
-    --muted-foreground: 168 80% 50%;
-    --accent: 271 96% 76%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 72.2% 50.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 28%;
-    --input: 0 0% 25%;
-    --ring: 271 96% 80%;
-    --chart-1: 271 96% 76%;
-    --chart-2: 168 100% 70%;
-    --chart-3: 45 80% 60%;
-    --chart-4: 210 70% 65%;
-    --chart-5: 140 60% 60%;
-    --sidebar-background: 0 0% 15%;
-    --sidebar-foreground: 168 100% 70%;
-    --sidebar-primary: 271 96% 76%;
+    --muted: 145 50% 50%;
+    --muted-foreground: 145 60% 65%;
+    --accent: 180 90% 55%;
+    --accent-foreground: 220 30% 10%;
+    --destructive: 0 72.2% 50.6%; /* Standard destructive red from previous theme */
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 25%;
+    --input: 220 20% 20%;
+    --ring: 25 95% 70%;
+    --chart-1: 25 95% 60%;
+    --chart-2: 180 90% 55%;
+    --chart-3: 145 70% 75%;
+    --chart-4: 340 90% 65%;
+    --chart-5: 50 100% 60%;
+    --sidebar-background: 220 30% 7%;
+    --sidebar-foreground: 145 70% 75%;
+    --sidebar-primary: 25 95% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 271 96% 70%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 25%;
-    --sidebar-ring: 271 96% 80%;
+    --sidebar-accent: 180 90% 55%;
+    --sidebar-accent-foreground: 220 30% 10%;
+    --sidebar-border: 220 20% 22%;
+    --sidebar-ring: 25 95% 70%;
   }
 }
 
@@ -98,10 +97,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-sans), sans-serif; /* Ensure font variable is used */
+    font-family: var(--font-sans), sans-serif;
   }
 }
 
 .neon-glow {
+  /* Primary will now be orange, so the glow will be orange */
   filter: drop-shadow(0 0 5px hsl(var(--primary))) drop-shadow(0 0 10px hsl(var(--primary) / 0.7));
 }
