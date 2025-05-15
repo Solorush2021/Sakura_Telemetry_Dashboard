@@ -8,7 +8,7 @@ import { DataDisplayCard } from '@/components/dashboard/DataDisplayCard';
 import { FuelTrendChart } from '@/components/dashboard/FuelTrendChart';
 import { CherryBlossomIcon } from '@/components/icons/CherryBlossomIcon';
 import { LogoutButton } from '@/components/LogoutButton';
-import { Fuel, Gauge, SignalHigh, BarChartHorizontalBig } from 'lucide-react';
+import { Fuel, Gauge, SignalHigh, BarChartHorizontalBig, Activity, AlertTriangle } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 export default function DashboardPage() {
@@ -16,83 +16,126 @@ export default function DashboardPage() {
   const [rpm, setRpm] = useState(3000);
   const [gnssAccuracy, setGnssAccuracy] = useState(95.0);
   const [showFuelTrend, setShowFuelTrend] = useState(false);
+  const [systemTime, setSystemTime] = useState('');
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const updateSystemTime = () => {
+      setSystemTime(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }) + " UTC");
+    };
+    updateSystemTime();
+    const timeInterval = setInterval(updateSystemTime, 1000);
+
+    const dataInterval = setInterval(() => {
       setFuel(prev => parseFloat(Math.max(0, Math.min(100, prev + (Math.random() * 4 - 2))).toFixed(1)));
       setRpm(prev => Math.max(0, Math.min(8000, prev + Math.floor(Math.random() * 400 - 200))));
       setGnssAccuracy(prev => parseFloat(Math.max(0, Math.min(100, prev + (Math.random() * 2 - 1))).toFixed(1)));
     }, 2000);
-    return () => clearInterval(interval);
+
+    return () => {
+      clearInterval(timeInterval);
+      clearInterval(dataInterval);
+    };
   }, []);
 
   return (
-    <div className="container mx-auto p-4 md:p-8 space-y-8">
-      <header className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-        <div className="flex items-center space-x-3">
-          <CherryBlossomIcon className="h-10 w-10 text-primary" />
-          <h1 className="text-3xl font-bold text-foreground">Sakura Telemetry Dashboard</h1>
-        </div>
-        <LogoutButton />
-      </header>
+    <div className="min-h-screen bg-background text-foreground p-2 md:p-4">
+      <div className="relative container mx-auto border border-primary/20 rounded-lg p-4 md:p-6 shadow-2xl bg-background/80 backdrop-blur-md space-y-6">
+        {/* Decorative corner elements */}
+        <div className="absolute -top-1 -left-1 w-8 h-8 border-t-2 border-l-2 border-accent/70 rounded-tl-lg opacity-50"></div>
+        <div className="absolute -top-1 -right-1 w-8 h-8 border-t-2 border-r-2 border-accent/70 rounded-tr-lg opacity-50"></div>
+        <div className="absolute -bottom-1 -left-1 w-8 h-8 border-b-2 border-l-2 border-accent/70 rounded-bl-lg opacity-50"></div>
+        <div className="absolute -bottom-1 -right-1 w-8 h-8 border-b-2 border-r-2 border-accent/70 rounded-br-lg opacity-50"></div>
+        
+        <header className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0 pb-4 border-b-2 border-primary/30">
+          <div className="flex items-center space-x-4">
+            <CherryBlossomIcon className="h-12 w-12 text-primary animate-pulse" />
+            <div>
+              <h1 className="text-4xl font-bold text-foreground tracking-tight">SAKURA TELEMETRY</h1>
+              <p className="text-sm text-accent/80 uppercase tracking-wider">Operational Dashboard // v2.1</p>
+            </div>
+          </div>
+          <div className="flex flex-col items-end space-y-2">
+            <LogoutButton />
+            <p className="text-xs text-muted-foreground font-mono">{systemTime}</p>
+          </div>
+        </header>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <DataDisplayCard
-          title="Fuel Level"
-          value={fuel}
-          unit="%"
-          icon={<Fuel size={28} />}
-          className="bg-card"
-        />
-        <DataDisplayCard
-          title="Engine RPM"
-          value={rpm.toLocaleString()} // Format RPM with comma
-          unit="RPM"
-          icon={<Gauge size={28} />}
-          className="bg-card"
-        />
-        <DataDisplayCard
-          title="GNSS Accuracy"
-          value={gnssAccuracy}
-          unit="%"
-          icon={<SignalHigh size={28} />}
-          className="bg-card"
-        />
-      </section>
-      
-      <Separator className="my-8 bg-border/50" />
-
-      <section className="space-y-6">
-        <div className="flex justify-center">
-          <Button 
-            onClick={() => setShowFuelTrend(!showFuelTrend)}
-            size="lg"
-            className="text-base px-8 py-6"
-          >
-            <BarChartHorizontalBig className="mr-2 h-5 w-5" />
-            {showFuelTrend ? 'Hide Fuel Trend' : 'View Fuel Trend'}
-          </Button>
+        <div className="grid grid-cols-2 gap-2 md:gap-4 text-xs text-accent/70 uppercase tracking-wider mb-2">
+          <p>System Status: <span className="text-green-400">OPERATIONAL</span></p>
+          <p className="text-right">Data Stream: <span className="text-green-400">ACTIVE</span></p>
         </div>
 
-        {showFuelTrend && (
-          <Card className="shadow-xl">
-            <CardHeader>
-              <CardTitle className="text-2xl text-center text-foreground">Sakura Fuel Trends</CardTitle>
-              <CardDescription className="text-center text-muted-foreground">
-                Visualizing simulated fuel consumption over time.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <FuelTrendChart />
-            </CardContent>
-          </Card>
-        )}
-      </section>
+        <section className="p-4 bg-card/50 border border-border/50 rounded-md shadow-inner">
+          <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest">// Core Metrics Array</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <DataDisplayCard
+              title="Fuel Reserves"
+              value={fuel}
+              unit="%"
+              icon={<Fuel size={32} className="text-primary" />}
+            />
+            <DataDisplayCard
+              title="Engine Output"
+              value={rpm.toLocaleString()}
+              unit="RPM"
+              icon={<Activity size={32} className="text-primary" />}
+            />
+            <DataDisplayCard
+              title="GNSS Precision"
+              value={gnssAccuracy}
+              unit="%"
+              icon={<SignalHigh size={32} className="text-primary" />}
+            />
+          </div>
+        </section>
+        
+        <Separator className="my-6 bg-primary/40 h-[1px]" />
 
-      <footer className="text-center py-8 text-muted-foreground text-sm">
-        <p>&copy; {new Date().getFullYear()} Sakura Telemetry Systems. All rights reserved.</p>
-        <p>Simulated data for demonstration purposes.</p>
-      </footer>
+        <section className="space-y-4 p-4 bg-card/50 border border-border/50 rounded-md shadow-inner">
+           <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-widest">// Fuel Consumption Analysis</h2>
+          <div className="flex justify-center">
+            <Button 
+              onClick={() => setShowFuelTrend(!showFuelTrend)}
+              size="lg"
+              variant="outline"
+              className="text-base px-10 py-6 border-2 border-primary hover:bg-primary/20 hover:text-accent active:bg-primary/30 text-accent tracking-wider"
+            >
+              <BarChartHorizontalBig className="mr-3 h-6 w-6" />
+              {showFuelTrend ? 'Close Fuel Analysis' : 'Initiate Fuel Trend Plot'}
+            </Button>
+          </div>
+
+          {showFuelTrend && (
+            <Card className="shadow-xl mt-6 bg-card/80 backdrop-blur-sm border border-primary/50">
+              <CardHeader className="border-b border-primary/30">
+                <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
+                <CardDescription className="text-center text-muted-foreground">
+                  Real-time fuel consumption projection over temporal segments.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <FuelTrendChart />
+              </CardContent>
+            </Card>
+          )}
+        </section>
+
+        <Separator className="my-6 bg-primary/40 h-[1px]" />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-muted-foreground p-2">
+            <div className="flex items-center space-x-2">
+                <AlertTriangle size={16} className="text-yellow-500"/>
+                <span>Simulated data stream for demonstration purposes. Anomaly detection inactive.</span>
+            </div>
+            <p className="md:text-right">Last telemetry sync: {systemTime.slice(0,8)}</p>
+        </div>
+
+
+        <footer className="text-center pt-6 pb-2 text-muted-foreground text-xs border-t border-primary/20">
+          <p>&copy; {new Date().getFullYear()} Sakura Telemetry Systems Ltd. // Secure Connection Established</p>
+          <p className="font-mono opacity-70">STS_DASH_REL_2.1.0 // All rights reserved.</p>
+        </footer>
+      </div>
     </div>
   );
 }
