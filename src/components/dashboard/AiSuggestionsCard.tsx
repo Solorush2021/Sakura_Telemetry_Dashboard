@@ -22,11 +22,11 @@ export function AiSuggestionsCard({ currentFuel, className }: AiSuggestionsCardP
       className={`shadow-lg flex flex-col bg-card/80 backdrop-blur-sm border-transparent rounded-lg overflow-hidden neon-outline-primary ${className}`}
       style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
     >
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-4 px-6 md:px-8">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-4 pl-10 pr-6 md:pl-14 md:pr-8">
         <CardTitle className="text-lg font-semibold text-primary uppercase tracking-wider">AI Diagnostics & Projections</CardTitle>
         <TrendingUp size={28} className="text-primary animate-pulse-scale-glow" />
       </CardHeader>
-      <CardContent className="flex-grow flex flex-col space-y-5 p-6 pt-2 px-6 md:px-8 text-sm">
+      <CardContent className="flex-grow flex flex-col space-y-5 pt-2 pl-10 pr-6 md:pl-14 md:pr-8 text-sm">
         <div>
           <div className="flex items-center space-x-2 mb-2">
             <Lightbulb size={20} className="text-accent" />
@@ -34,7 +34,7 @@ export function AiSuggestionsCard({ currentFuel, className }: AiSuggestionsCardP
           </div>
           <ul className="list-disc list-inside space-y-1.5 text-foreground/80 pl-2">
             {fuelEfficiencyTips.slice(0, 2).map((tip, index) => ( // Show first 2 tips
-              <li key={index}>{tip}</li>
+              <li key={index}>{tip}>{tip}</li>
             ))}
           </ul>
         </div>

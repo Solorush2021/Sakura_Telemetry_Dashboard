@@ -117,27 +117,28 @@ export default function DashboardPage() {
                 </Button>
               </div>
             </div>
-             {showFuelTrend && (
-              <Card 
-                className="shadow-xl bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4"
-              >
-                <CardHeader className="border-b border-primary/30 px-10 py-4">
-                  <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
-                  <CardDescription className="text-center text-muted-foreground/80">
-                    Real-time & projected fuel consumption over temporal segments.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pt-6 px-6 md:px-10">
-                  <FuelTrendChart />
-                </CardContent>
-              </Card>
-            )}
           </div>
 
           <div className="lg:col-span-2">
             <AiSuggestionsCard currentFuel={fuel} />
           </div>
         </section>
+        
+        {showFuelTrend && (
+          <Card 
+            className="mt-6 shadow-xl bg-card/80 backdrop-blur-sm border-transparent rounded-lg neon-outline-chart4"
+          >
+            <CardHeader className="border-b border-primary/30 px-10 py-4">
+              <CardTitle className="text-2xl text-center text-primary tracking-wide">Sakura Fuel Trends</CardTitle>
+              <CardDescription className="text-center text-muted-foreground/80">
+                Real-time & projected fuel consumption over temporal segments.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-6 px-6 md:px-10">
+              <FuelTrendChart />
+            </CardContent>
+          </Card>
+        )}
         
         <Separator className="my-6 bg-primary/40 h-[1px]" />
         
