@@ -98,9 +98,9 @@ export default function DashboardPage() {
         
         <Separator className="my-6 bg-primary/40 h-[1px]" />
 
-        <section className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div 
-            className="lg:col-span-2 flex flex-col p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary flex-grow justify-center"
+            className="lg:col-span-1 flex flex-col p-4 bg-card/50 border border-transparent rounded-md shadow-inner neon-outline-primary flex-grow justify-center"
             style={{ clipPath: 'polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)' }}
           >
             <h2 className="text-xl font-semibold text-primary text-center mb-4 uppercase tracking-widest px-24 py-2 animate-text-shimmer"> // Fuel Consumption Analysis</h2>
@@ -117,7 +117,7 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-3 flex flex-col">
+          <div className="lg:col-span-1 flex flex-col">
             <AiSuggestionsCard currentFuel={fuel} className="flex-grow" />
           </div>
         </section>
