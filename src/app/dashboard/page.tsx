@@ -58,7 +58,7 @@ export default function DashboardPage() {
           </div>
           <div className="flex flex-col items-end space-y-2">
             <LogoutButton />
-            <p className="text-xs text-muted-foreground font-mono">{systemTime}</p>
+            <p className="text-sm text-muted-foreground font-mono">{systemTime}</p>
           </div>
         </header>
 
